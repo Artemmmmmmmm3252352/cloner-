@@ -1,0 +1,7 @@
+{
+  "name": "Surgical Alabaster Workspace",
+  "description": "A pristine, minimalist workspace interface inspired by Notion, featuring a surgical alabaster aesthetic, smooth interactions, and a focus on clarity.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
