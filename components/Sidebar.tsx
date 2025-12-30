@@ -30,8 +30,6 @@ const WORKSPACE_EMOJIS = ['🚀', '💼', '🎓', '🏠', '🎨', '💻', '📝'
 const WORKSPACE_TAGS = ['Personal', 'Work', 'School', 'Project', 'Side Hustle'];
 
 interface SidebarProps {
-  isOpen: boolean;
-  onClose: () => void;
   currentUser: User | null;
   onLogout: () => void;
   workspaces: Workspace[];
@@ -200,9 +198,7 @@ const PageTreeItem: React.FC<{
     );
 };
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  isOpen,
-  onClose,
+export const Sidebar: React.FC<SidebarProps> = ({ 
   currentUser,
   onLogout,
   workspaces,
@@ -210,8 +206,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onSwitchWorkspace,
   onCreateWorkspace,
   onUpdateWorkspace,
-  activePageId,
-  onNavigate,
+  activePageId, 
+  onNavigate, 
   onCreatePage,
   onDeletePage,
   onRestorePage,
@@ -325,21 +321,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   if (!activeWorkspace) return <aside className="w-[260px] bg-alabaster-haze h-full flex items-center justify-center text-surgical-dim">Loading...</aside>;
 
   return (
-    <>
-      {/* Mobile Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/20 z-30 sm:hidden"
-          onClick={onClose}
-        />
-      )}
-
-      <aside className={`
-        w-[260px] bg-alabaster-haze h-full flex flex-col py-4 select-none relative z-40 shrink-0 border-r border-alabaster-vein sm:border-r-0
-        fixed sm:relative
-        transition-transform duration-300
-        ${isOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
-      `}>
+    <aside className="w-[260px] bg-alabaster-haze h-full flex flex-col py-4 select-none relative z-20 shrink-0 border-r border-alabaster-vein sm:border-r-0">
       
       {/* Workspace Switcher */}
       <div className="relative mb-4 px-4" ref={switcherRef}>
@@ -552,6 +534,5 @@ export const Sidebar: React.FC<SidebarProps> = ({
          <SidebarItem icon={<UserPlus size={16} />} label={t('invite_members')} onClick={onOpenMembersModal} />
       </div>
     </aside>
-    </>
   );
 };

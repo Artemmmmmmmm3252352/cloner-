@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App';
+import App from './App';
 
 // Initialize process.env.API_KEY with the provided key if not already set
 // This ensures the Gemini API client works immediately in this environment.
